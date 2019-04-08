@@ -8,7 +8,7 @@ TCP (SMTP) Application developed as an exercise in the context of the RES course
 
 ### Set up a mock server
 
-### Configure an run the prank application
+### Configure and run the prank application
 
 ## Implementation
 
