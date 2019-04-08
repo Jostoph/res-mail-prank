@@ -1,4 +1,4 @@
-package ch.heigvd.res;
+package ch.heigvd.res.mailbot;
 
 public class ResMailPrank {
 }
