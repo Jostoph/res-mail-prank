@@ -1,13 +1,13 @@
 package ch.heigvd.res.mailbot.model.mail;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Group {
 
     private Person sender;
-    private LinkedList<Person> victims;
+    private ArrayList<Person> victims;
 
-    public Group(Person sender, LinkedList<Person> victims) throws RuntimeException {
+    public Group(Person sender, ArrayList<Person> victims) throws RuntimeException {
 
         if(sender == null || victims.size() < 2) {
             throw new RuntimeException("A group must have a sender and at least 2 victims");
@@ -20,7 +20,7 @@ public class Group {
         return sender;
     }
 
-    public LinkedList<Person> getVictims() {
+    public ArrayList<Person> getVictims() {
         return victims;
     }
 }

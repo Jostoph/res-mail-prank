@@ -14,7 +14,6 @@ public class Prank {
     }
 
     public Mail getMail() {
-        // TODO getMail to send
-        return null;
+        return new Mail(group.getSender(), group.getVictims(), message);
     }
 }

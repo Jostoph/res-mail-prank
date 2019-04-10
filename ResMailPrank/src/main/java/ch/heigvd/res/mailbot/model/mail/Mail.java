@@ -19,8 +19,9 @@ public class Mail {
     }
 
     public ArrayList<String> getRecipientsAddresses() {
-        // TODO
-        return null;
+        ArrayList<String> addresses = new ArrayList<>();
+        recipients.forEach(p -> addresses.add(p.getMailAddress()));
+        return addresses;
     }
 
     public String getMessage() {
