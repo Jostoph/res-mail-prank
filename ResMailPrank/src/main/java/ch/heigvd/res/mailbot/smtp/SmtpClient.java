@@ -4,6 +4,7 @@ import ch.heigvd.res.mailbot.model.mail.Mail;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Logger;
 
 public class SmtpClient  implements ISmtpClient {
@@ -12,10 +13,6 @@ public class SmtpClient  implements ISmtpClient {
 
     private String serverAddress;
     private int port;
-
-    private PrintWriter writer;
-    private BufferedReader reader;
-
 
     public SmtpClient(String serverAddress, int port) {
         this.serverAddress = serverAddress;
@@ -32,8 +29,8 @@ public class SmtpClient  implements ISmtpClient {
         LOGGER.info("Connected to " + serverAddress);
 
         String line;
-        writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
-        reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
 
         line = reader.readLine();
         LOGGER.info(line);

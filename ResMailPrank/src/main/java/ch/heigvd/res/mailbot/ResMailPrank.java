@@ -2,7 +2,7 @@ package ch.heigvd.res.mailbot;
 
 public class ResMailPrank {
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
     }
 }
