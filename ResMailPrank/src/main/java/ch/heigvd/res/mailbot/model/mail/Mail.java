@@ -1,14 +1,15 @@
 package ch.heigvd.res.mailbot.model.mail;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Mail {
 
     private Person sender;
-    private ArrayList<Person> recipients;
+    private List<Person> recipients;
     private String message;
 
-    public Mail(Person sender, ArrayList<Person> recipients, String message) {
+    public Mail(Person sender, List<Person> recipients, String message) {
         this.sender = sender;
         this.recipients = recipients;
         this.message = message;
@@ -18,8 +19,8 @@ public class Mail {
         return sender.getMailAddress();
     }
 
-    public ArrayList<String> getRecipientsAddresses() {
-        ArrayList<String> addresses = new ArrayList<>();
+    public List<String> getRecipientsAddresses() {
+        List<String> addresses = new ArrayList<>();
         recipients.forEach(p -> addresses.add(p.getMailAddress()));
         return addresses;
     }

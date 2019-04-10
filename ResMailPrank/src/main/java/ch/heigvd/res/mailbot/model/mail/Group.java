@@ -1,26 +1,30 @@
 package ch.heigvd.res.mailbot.model.mail;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Group {
 
     private Person sender;
-    private ArrayList<Person> victims;
+    private List<Person> victims;
 
-    public Group(Person sender, ArrayList<Person> victims) throws RuntimeException {
-
-        if(sender == null || victims.size() < 2) {
-            throw new RuntimeException("A group must have a sender and at least 2 victims");
-        }
-        this.sender = sender;
-        this.victims = victims;
+    public Group() {
+        this.victims = new ArrayList<>();
     }
 
     public Person getSender() {
         return sender;
     }
 
-    public ArrayList<Person> getVictims() {
+    public List<Person> getVictims() {
         return victims;
+    }
+
+    public void setSender(Person sender) {
+        this.sender = sender;
+    }
+
+    public void addVictim(Person victim) {
+        victims.add(victim);
     }
 }
