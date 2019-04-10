@@ -1,6 +1,7 @@
 package ch.heigvd.res.mailbot.model.prank;
 
 import ch.heigvd.res.mailbot.model.mail.Group;
+import ch.heigvd.res.mailbot.model.mail.Mail;
 
 public class Prank {
 
@@ -12,7 +13,8 @@ public class Prank {
         this.message = message;
     }
 
-    public void execute() {
-        // TODO execute prank (send mails)
+    public Mail getMail() {
+        // TODO getMail to send
+        return null;
     }
 }
