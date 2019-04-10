@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run -p 25:25 -p 8282:8282 mock-smtp-server
+docker run -it -p 25:25 -p 8282:8282 mock-smtp-server
