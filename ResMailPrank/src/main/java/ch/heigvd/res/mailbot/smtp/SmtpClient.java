@@ -43,19 +43,18 @@ public class SmtpClient  implements ISmtpClient {
         if(!line.startsWith("250")) {
             throw new IOException("Error : " + line);
         } else {
-            while (line.startsWith("250")) {
+            while (line.startsWith("250-")) {
                 line = reader.readLine();
                 LOGGER.info(line);
             }
         }
-
-        writer.printf("MAIL FROM: " + mail.getSenderAddress() + "\r\n");
+        writer.printf("MAIL FROM:" + mail.getSenderAddress() + "\r\n");
 
         line = reader.readLine();
         LOGGER.info(line);
 
         for(String rcpt : mail.getRecipientsAddresses()) {
-            writer.printf("RCPT TO: " + rcpt + "\r\n");
+            writer.printf("RCPT TO:" + rcpt + "\r\n");
             line = reader.readLine();
             LOGGER.info(line);
         }
@@ -65,8 +64,11 @@ public class SmtpClient  implements ISmtpClient {
         line = reader.readLine();
         LOGGER.info(line);
 
-        writer.write("To: " + mail.getSenderAddress());
-        for(int i = 0; i < mail.getRecipientsAddresses().size(); ++i) {
+        writer.write("Content-Type: text/plain; charset=\"utf-8\"\r\n");
+        writer.write("From: " + mail.getSenderAddress() + "\r\n");
+
+        writer.write("To: " + mail.getRecipientsAddresses().get(0));
+        for(int i = 1; i < mail.getRecipientsAddresses().size(); ++i) {
             writer.write(", " + mail.getRecipientsAddresses().get(i));
         }
         writer.write("\r\n");
