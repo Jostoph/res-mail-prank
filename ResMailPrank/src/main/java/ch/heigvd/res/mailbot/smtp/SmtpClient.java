@@ -74,14 +74,14 @@ public class SmtpClient  implements ISmtpClient {
             }
         }
         // sending the email address of the sender
-        writer.printf("MAIL FROM:" + mail.getSenderAddress() + "\r\n");
+        writer.printf("MAIL FROM:<" + mail.getSenderAddress() + ">\r\n");
 
         line = reader.readLine();
         LOGGER.info(line);
 
         // sending the recipients that will get the message
         for(String rcpt : mail.getRecipientsAddresses()) {
-            writer.printf("RCPT TO:" + rcpt + "\r\n");
+            writer.printf("RCPT TO:<" + rcpt + ">\r\n");
             line = reader.readLine();
             LOGGER.info(line);
         }
